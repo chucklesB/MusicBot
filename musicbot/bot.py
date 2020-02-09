@@ -1232,6 +1232,15 @@ class MusicBot(discord.Client):
             usr = user_mentions[0]
             return Response(self.str.get('cmd-id-other', '**{0}**s ID is `{1}`').format(usr.name, usr.id), reply=True, delete_after=35)
 
+    async def cmd_ping(self):
+        """
+        Usage:
+            {command_prefix}ping
+
+        Report the current latency of the bot.
+        """
+        return Response('My latency is {0}ms'.format(int(self.latency * 1000)), reply=True, delete_after=35)
+
     async def cmd_save(self, player, url=None):
         """
         Usage:
